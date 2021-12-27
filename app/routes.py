@@ -20,7 +20,6 @@ def main(league_id):
     league_name = response['league']['name']
 
     colours = ['#ff0000', '#ff8000', '#00ff00', '#0080ff', '#8000ff', '#0000ff', '#ff00ff', '#ff0080', '#ffff00', '#00ff80']
-    # random.shuffle(colours)
 
     datasets = []
     i = 0
@@ -29,7 +28,6 @@ def main(league_id):
         data['label'] = result['player_name']
         data['data'] = []
         data['borderColor'] = colours[i]
-        data['pointHitRadius'] = 0
 
         # Make API query for each entry
         url = "https://fantasy.premierleague.com/api/entry/"+str(result['entry'])+"/history/"
