@@ -3,6 +3,7 @@ import requests
 from pprint import pprint
 from flask import render_template
 import random
+import pendulum
 
 @app.route('/<league_id>', methods=["GET"])
 def main(league_id):
@@ -16,7 +17,7 @@ def main(league_id):
 
     response = response.json()
 
-    last_updated_data = response['last_updated_data']
+    last_updated_data = pendulum.parse(response['last_updated_data']).format('LLL')
     league_name = response['league']['name']
 
     colours = ['#ff0000', '#ff8000', '#00ff00', '#0080ff', '#8000ff', '#0000ff', '#ff00ff', '#ff0080', '#ffff00', '#00ff80']
