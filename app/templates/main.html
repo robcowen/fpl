@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Fantasy Premier League Charts</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3/dist/chart.min.js"></script>
+    </head>
+    <body>
+        <h1>{{league_name}}</h1>
+        <h2>Last updated {{last_updated_data}}</h2>
+        <canvas id="myChart" width="400" height="400"></canvas>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{labels|tojson}},
+        datasets: {{datasets|tojson}}
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                suggestedMax: 2500
+            }
+        },
+        elements: {
+                    point:{
+                        radius: 0
+                    }
+                }
+
+    }
+});
+</script>
+
+    </body>
+</html>
