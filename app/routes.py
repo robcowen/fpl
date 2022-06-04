@@ -25,11 +25,16 @@ def main(league_id):
     datasets = []
     i = 0
     for result in response['standings']['results']:
+
         data = {}
         data['label'] = result['player_name']
         data['data'] = []
-        data['borderColor'] = colours[i]
+        if i < len(colours):
+            data['borderColor'] = colours[i]
 
+        else:
+            data['borderColor'] = ["#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])]
+        
         # Make API query for each entry
         url = "https://fantasy.premierleague.com/api/entry/"+str(result['entry'])+"/history/"
 
