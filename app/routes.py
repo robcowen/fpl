@@ -12,7 +12,7 @@ def index():
     if form.validate_on_submit():
         return redirect(url_for("main", league_id=form.league_id.data))
 
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, title="")
 
 @app.route('/<league_id>', methods=["GET"])
 def main(league_id):
@@ -69,4 +69,4 @@ def main(league_id):
     # Create gameweek labels to end of season
     labels = list(range(1, 39))
 
-    return render_template('main.html', league_name = league_name, last_updated_data = last_updated_data, datasets = datasets, labels = labels)
+    return render_template('main.html', league_name = league_name, last_updated_data = last_updated_data, datasets = datasets, labels = labels, title = " - "+league_name)
