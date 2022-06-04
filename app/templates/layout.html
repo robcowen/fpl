@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Fantasy Premier League Charts</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v1">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3/dist/chart.min.js"></script>
+    </head>
+    <body>
+      <header class="m-3">
+        <h1><a href={{url_for(('index'))}}>Fantasy Premier League Charts</a></h1>
+      </header>
+      <section class="m-2">
+        {% block content %}{% endblock %}
+      </section>
+      <footer>
+        <a href="https://github.com/robcowen/fpl" target="_blank">https://github.com/robcowen/fpl</a>
+      </footer>
+    </body>
+</html>

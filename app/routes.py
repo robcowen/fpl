@@ -1,9 +1,18 @@
 from app import app
 import requests
 from pprint import pprint
-from flask import render_template
+from flask import render_template, redirect, url_for
+from app.forms import *
 import random
 import pendulum
+
+@app.route('/', methods=["GET","POST"])
+def index():
+    form = LeagueInputForm()
+    if form.validate_on_submit():
+        return redirect(url_for("main", league_id=form.league_id.data))
+
+    return render_template('index.html', form=form)
 
 @app.route('/<league_id>', methods=["GET"])
 def main(league_id):
@@ -34,7 +43,7 @@ def main(league_id):
 
         else:
             data['borderColor'] = ["#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])]
-        
+
         # Make API query for each entry
         url = "https://fantasy.premierleague.com/api/entry/"+str(result['entry'])+"/history/"
 
