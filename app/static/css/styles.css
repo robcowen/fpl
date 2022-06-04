@@ -11,3 +11,13 @@ footer {
 a {
   text-decoration: none;
 }
+
+#myChart {
+  /* display: none !important; */
+  width: 100%
+}
+
+#chart-img {
+  display: none;
+  width: 100% ;
+}

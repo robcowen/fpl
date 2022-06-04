@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  <div class="m-1">
+  <div class="my-1">
     To generate a graph for your FPL league, enter the league id below. You can find your league id by signing into the FPL website and copying the number from the URL.
   </div>
-  <div class="m-3">
+  <div class="my-3">
     <form method="POST" action="/" class="">
       {{ form.csrf_token }}
       {{ form.league_id(class_="form-control", placeholder=form.league_id.description) }}
