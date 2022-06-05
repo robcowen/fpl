@@ -54,6 +54,14 @@ def main(league_id):
 
         response = response.json()
 
+        # Add week zero values
+        data_point = {
+            'x': 0,
+            'y': 0
+        }
+
+        data['data'].append(data_point)
+
         # Loop through gameweeks and collect data
         for gameweek in response['current']:
             data_point = {
@@ -67,6 +75,6 @@ def main(league_id):
         i = i + 1
 
     # Create gameweek labels to end of season
-    labels = list(range(1, 39))
+    labels = list(range(0, 39))
 
     return render_template('main.html', league_name = league_name, last_updated_data = last_updated_data, datasets = datasets, labels = labels, title = " - "+league_name)
