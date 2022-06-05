@@ -16,15 +16,21 @@
           gtag('config', 'G-5LFZ6L4VJ7');
         </script>
     </head>
-    <body class="mx-2">
-      <header class="my-3">
-        <h1><a href={{url_for(('index'))}}>Fantasy Premier League Charts</a></h1>
-      </header>
-      <section class="my-2">
-        {% block content %}{% endblock %}
-      </section>
-      <footer>
-        <a href="https://github.com/robcowen/fpl" target="_blank">https://github.com/robcowen/fpl</a>
-      </footer>
+    <body>
+      <div class="container"
+        <div class="row">
+          <div class="col-12">
+            <header class="my-3">
+              <h1><a href={{url_for(('index'))}}>Fantasy Premier League Charts</a></h1>
+            </header>
+            <section class="my-2">
+              {% block content %}{% endblock %}
+            </section>
+            <footer>
+              <a href="https://github.com/robcowen/fpl" target="_blank">https://github.com/robcowen/fpl</a>
+            </footer>
+          </div>
+        </div>
+      </div>
     </body>
 </html>
